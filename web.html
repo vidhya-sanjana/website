@@ -4,9 +4,597 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TechRise: Building Hope, Breaking Barriers</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+:root{
+    --themeRed:#e43a47;
+    --gray:#efefef;
+}
+html{
+    scroll-behavior: smooth;
+}
+button,
+body{
+    font-family:"Poppins",sans-serif;
+}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+p{
+    font-size: 14px;
+    line-height: 26px;
+}
+.fullContainer{
+    width: 100%;
+}
+.container{
+    width:1440px;
+    margin:auto;
+}
+.sectionTitle{
+    width: 300px;
+    border-bottom: 3px solid var(--themeRed);
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 200;
+    margin: 0 auto 50px;
+    position: relative;
+    padding: 10px 0;
+    text-transform: uppercase;
+}
+.sectionTitle::after{
+    display: inline-block;
+    content: "";
+    height: 15px;
+    width: 15px;
+    background-color: var(--themeRed);
+    position:absolute;
+    left: calc(50%-10px);
+    top: calc(75%-7px);
+    transform: rotate(45deg) translate(50%,50%);
+    border: 3px solid #fff
+}
+section{
+    padding: 100px 0;
+    position: relative;
+}
+header{
+    width:100%;
+    background-color:rgba(0,0,0,0.6);
+    position: fixed;
+    z-index: 2;
+} 
+
+header nav ul{
+    list-style-type:none;
+}
+
+header nav ul li{
+    display:inline-block;
+}
+
+header nav ul li a{
+    display :inline-block;
+    height: 75px;
+    line-height: 75px;
+    padding:0 15px;
+    text-decoration:none;
+    text-transform: capitalize;
+    font-size: 16px;
+    color:#fff;
+    transition:0.3s;
+}
+
+header nav ul li a:hover{
+    background-color:var(--themeRed);
+}
+.banner{
+    min-height:100vh;
+    width:100%;
+    background-image: url("https://static.theprint.in/wp-content/uploads/2023/07/poverty.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.banner h1{
+    margin-top: 230px;
+    display: inline-block;
+    font-size: 3.5rem;
+    color:#fff;
+    text-shadow: 0 0 2px #000;
+    width: 50%;
+    line-height: 4.2rem;
+    font-weight: 100;
+}
+
+.banner h1 span{
+    background-color: var(--themeRed);
+    display:inline-block;
+    line-height: 3.5rem;
+    padding:0 15px;
+font-weight: 600;
+border-radius: 5px;
+}
+
+.banner p {
+    color: #f8f6f7;
+    width:50%;
+    text-shadow: 0 0 2px #f4eeee;
+    margin-top: 10px;
+    font-size: larger;
+}
+.banner  ul{
+    color: #f8f6f7;
+    width:50%;
+    text-shadow: 0 0 2px #f4eeee;
+    margin-top: 10px;
+    font-size: larger;
+}
+
+.banner button{
+    background-color: var(--themeRed);
+    border: 0;
+    outline: none;
+    color: #fff;
+    padding: 10px 15px;
+    margin-top:20px;
+    font-size:13px;
+    border-radius: 3px;
+    font-weight: 600;
+}
+
+#aboutSection .cards {
+    display:flex;
+    flex-wrap: wrap;
+    justify-content:space-between;
+    margin-top: 50px;
+    position: relative;
+    height: 245px;
+}
+
+#aboutSection .cards > div {
+    width: 400px;
+    background-color: var(--gray);
+    padding: 35px;
+    color:#444;
+    text-align: center;
+    border-radius: 5px;
+    height:250px;
+    border:1px solid #f30b0b;
+    transition: 0.4s;
+}
+#aboutSection .cards > div:hover {
+    width:400px;
+    margin-top: -20px;
+    border-color: var(--themeRed);
+    padding: 55px;
+    height: auto;
+}
+#aboutSection .cards > div .title {
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+#aboutSection .cards > div p {
+    font-size: 14px;
+    margin-top: 15px;
+}
+
+#aboutSection .cards > div button {  
+    border: 1px solid var(--themeRed);
+    outline:none;
+    padding: 7px 15px;
+    margin-top:15px;
+    font-size: 12px;
+    border: 3px;
+    border-color: var(--themeRed);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#aboutSection .cards > div:hover button {
+    background-color: var(--themeRed);
+    color: #fff;
+}
+
+.programs{
+    background-color: #e2e2e2;
+}
+
+.programs .boxContainer{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap:50px;
+}
+
+.programs .boxContainer .box{
+    background-color: #fff;
+    text-align: center;
+    padding-bottom: 25px;
+    border-radius: 5px;
+    box-shadow: 0 0 3px 0 #c5c5c5;
+    position:relative;
+    margin-bottom:15px;
+
+}
+
+.programs .boxContainer .box .cardImage{
+    width:100%;
+    height:300px;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px 5px 0 0;
+}
+.programs .boxContainer .box .cardImage:after{
+    width:100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    content:"";
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    filter:grayscale(100%);
+    transition:0.4s
+}
+
+.programs .boxContainer .box:nth-child(1) .cardImage,
+.programs .boxContainer .box:nth-child(1) .cardImage:after{
+    background-image:url("https://i.pinimg.com/736x/e1/c2/0b/e1c20bb7e0738f30cd88ba0fa13885c6.jpg") ;
+}
+.programs .boxContainer .box:nth-child(2) .cardImage,
+programs .boxContainer .box:nth-child(2) .cardImage:after{
+    background-image:url("https://vajiram-prod.s3.ap-south-1.amazonaws.com/Issues_relating_to_poverty_208_197c5c16ce.jpg") ;
+}
+.programs .boxContainer .box:nth-child(3) .cardImage,
+programs .boxContainer .box:nth-child(3) .cardImage:after{
+    background-image:url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRufFTGAc6F7Y5g_B7Byzesj4nzZ7sNlkkXCPIPcnW0-Pnq7x2nAL1JAb5zTNO5eV1eQgw&usqp=CAU") ;
+}
+.programs .boxContainer .box:nth-child(4) .cardImage,
+programs .boxContainer .box:nth-child(4) .cardImage:after{
+    background-image:url("https://us.123rf.com/450wm/tommaso79/tommaso792006/tommaso79200600033/149366299-jobless-worker-after-job-loss-begging-in-the-city-street.jpg?ver=6") ;
+}
+
+.programs .boxContainer .box:hover .cardImage:after{
+    top:100%;
+}
+.programs .boxContainer .box .programTitle {
+    font-size:16px;
+    margin-top: 15px;
+    font-weight:600;
+    color: #444;
+     text-decoration: none;
+    cursor: pointer; 
+}
+.programs .boxContainer .box .donationCount{
+    font-size: 13px;
+    font-weight: 600;
+    margin-top: 10px;
+    color: #444;
+}
+.programs .boxContainer .box .donationCount span{
+    color: var(--themeRed);
+}
+
+.programs .boxContainer .box button{
+    position: absolute;
+    left: 50%;
+    background-color: var(--themeRed);
+    color: #fff;
+    transform: translate(-50%);
+    bottom:-15px;
+    border-radius: 60px;
+    padding: 7px 15px;
+    border:0;
+    outline: none;
+    cursor: pointer;
+
+}
+.reference{
+    background-color: #e2e2e2;
+}
+
+.reference .boxContainer{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap:50px;
+}
+
+.reference .boxContainer .box{
+    background-color: #fff;
+    text-align: center;
+    padding-bottom: 25px;
+    border-radius: 5px;
+    box-shadow: 0 0 3px 0 #c5c5c5;
+    position:relative;
+    margin-bottom:15px;
+
+}
+
+.reference .boxContainer .box .cardImage{
+    width:100%;
+    height:400px;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px 5px 0 0;
+    font-size: 9px;
+}
+.reference .boxContainer .box:hover .cardImage:after{
+    top:100%;
+}
+.reference .boxContainer .box .programTitle {
+    font-size:16px;
+    margin-top: 15px;
+    font-weight: 600;
+    color: #ed4a4a;
+}
+@media screen and (max-width:1140px)
+{
+    .container{
+        width:100%;
+        padding: 0 15px;
+    }
+}
+
+@media screen and (max-width:1000px)
+{
+    .banner h1{
+        margin-top: 200px;  
+    }
+    #aboutSection .cards{
+        justify-content: space-around;
+        height: auto;
+    }
+    #aboutSection .cards > div{
+        margin: 10px 0;
+    }
+}
+@media screen and (max-width:1024px)
+{
+    .banner{
+        background-position-x:45% ;
+    }
+    .banner h1{
+        font-size: 2.5rem;
+}
+.programs .boxContainer{
+    grid-template-columns: repeat(2, 1fr);
+}
+}
+@media screen and (max-width:768px){
+header nav{
+    position: relative;
+    border: 2px solid #fff;
+    height:30px;
+    width: 30px;
+    margin-top:20px;
+    border-radius: 5px;
+}
+header nav:after{
+ top:17px;
+}
+header nav:before{
+    top:7px;
+}
+header nav:after,
+header nav:before{
+    content: "";
+    height:2px;
+    width:17px;
+    background-color: #fff;
+    display: block;
+    position:absolute;
+    left:5px;
+
+}
+header nav ul{
+    position: absolute;
+    right: -400px;
+    top:53px;
+    transition: 0.5s;
+}
+
+header nav:hover ul{
+    right: 0;
+}
+
+header nav ul li{
+    display: block;
+}
+header nav ul li a{
+    width: 300px;
+    background-color: rgba(0,0,0,0.6);
+}
+.banner{
+    background-position-x: 65%;
+}
+.banner p{
+    font-size:14px;
+}
+.banner p,
+.banner h1{
+    width: 70%;
+}
+
+#aboutSection .cards > div:hover{
+    width:350px;
+}
+.gallery .galleryContainer{
+    column-count: 2;
+    
+}
+}
+
+@media screen and (max-width:425px){
+    .banner h1{
+        margin-top: 150px;
+        font-size: 2rem;
+        line-height:3rem;
+    }
+    .banner button{
+        margin-bottom: 10px;
+    }
+    #aboutSection p{
+        text-align: justify;
+    }
+
+    #aboutSection .cards > div:hover{
+        width:400px;
+        margin-top: 10px;
+        padding: 35px;
+    }
+    .programs .boxContainer{
+        grid-template-columns: 1fr;
+    }
+    .gallery .galleryContainer{
+        column-count: 1;
+        
+    }
+    footer .container{
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media screen and (max-width:320px){
+    .banner h1{
+        margin-top: 100px;
+    }
+}
+/* gallery start */
+
+.gallery .galleryContainer{
+    column-count: 4;
+    column-gap: 20px;
+    
+}
+
+.gallery .galleryContainer .item{
+    position: relative;
+    margin-bottom : 20px;
+    overflow: hidden;
+}
+
+.gallery .galleryContainer img{
+    width: 100%;
+    display: block;
+    transition: 0.4s;
+}
+
+.gallery .galleryContainer .title{
+    position: absolute;
+    background-color: var(--gray);
+    padding: 5px;
+    margin: 5px;
+    border-radius: 5px;
+    font-size: 13px;
+    font-weight: bold;
+    opacity: 0;
+    z-index: 1;
+    transition: 0.4s;
+}
+
+.gallery .galleryContainer .item:hover .title{
+    opacity: 1;
+
+}
+
+.gallery .galleryContainer .item:hover img{
+    transform: scale(1.2);
+} 
+
+/* gallery end */
+
+/* Join start */
+
+.join {
+    background-color: coral;
+    color: #fff;
+    display: flex;
+    flex-direction: column; /* Change to column layout for vertical alignment */
+    align-items: center; /* Center align items */
+    text-align: center; /* Center align text */
+    padding-bottom: 20px;
+}
+
+.join .joinTitle {
+    font-size: 40px;
+    font-weight: 100;
+}
+
+.join .joinTitle span {
+    font-weight: 800;
+}
+.join button{
+    padding: 7px 15px;
+    margin-top: 20px;
+    border: 0;
+    outline: none;
+    font-weight: 600;
+    font-size: 16px;
+}
+.join button.joinNow {
+    margin-top: 20px;
+    margin-bottom: 20px; /* Add margin to the bottom to create space */
+    background-color: #424242;
+    color: #fff;
+}
+
+
+
+/* Join end */
+
+/* footer start */
+
+footer {
+    background-color: #181818;
+    color: #f7f7f7;
+    padding: 50px 0;
+    font-size: 14px;
+}
+
+footer .container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 40px;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+footer .title {
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-bottom: 2px solid;
+    margin-bottom: 30px;
+    padding: 0 0 5px 0;
+}
+
+footer p {
+    margin-bottom: 10px;
+}
+
+footer .linksContainer ul {
+    list-style-type: none;
+}
+
+footer .linksContainer ul li a {
+    text-decoration: none;
+    color: #f7f7f7;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+</style>
 </head>
-<body>
+    <body>
     <div class="fullcontainer banner" id="homeSection">
         <header> 
             <nav>
