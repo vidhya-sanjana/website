@@ -4,5 +4,8 @@
     { "src": "web.html", "use": "@vercel/static" },
     { "src": "style.css", "use": "@vercel/static" }
   ],
-  "routes": [{ "src": "/(.*)", "dest": "/web.html" }]
+  "routes": [
+    { "src": "/(.*)", "dest": "/web.html" },
+    { "src": "/style.css", "dest": "/style.css" }
+  ]
 }
